@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ml-challenge-kaggle"
+version = "0.1.0"
+description = "Solve machine learning challenge from Kaggle Playground, with Jupyter Notebook support. Name: Predict credit card fraud. Date: 11-12/2026"
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+    "numpy",
+    "pandas",
+    "scikit-learn",
+    "scipy"
+]
+
+[project.optional-dependencies]
+dev = [
+    "jupyterlab",
+    "ipykernel",
+    "ipywidgets",
+    "matplotlib",
+    "seaborn",
+    "pytest",
+    "ruff",
+    "nbstripout",
+    "pip-tools"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "NPY", "PD"] # Includes NumPy and Pandas rules
