@@ -181,8 +181,8 @@ pipelines/training.py
        v
   outputs/
 ```
-Training pipeline, đã cache kết quả xử lý:
-
+Nếu chạy lại cả pipeline khi train thì rất phí, nên cache kết quả xử lý của từng stage;  
+-> Sau chỉ cần lấy dữ liệu đã làm sạch + preprocessing artifact và train (nếu không có thay đổi về dữ liệu hay config)
 
 Các mô hình chỉ khác nhau ở cấu hình
 Ví dụ chạy train script:
