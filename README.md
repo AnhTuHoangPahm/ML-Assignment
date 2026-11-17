@@ -66,7 +66,8 @@ project-root/
 │       ├── data/                     # Layer 1
 │       │   ├── __init__.py
 │       │   ├── loader.py
-│       │   └── validation.py         # Kiểm tra input: cột bắt buộc, kiểu dữ liệu, nulls, outliers
+│       │   ├── pre_processing.py    # clean & pre-processing, 2 module 1 file
+│       │   └── validation.py         # Kiểm tra input: cột bắt buộc, kiểu dữ liệu, nulls, ...
 │       │
 │       ├── features/                 # Layer 2
 │       │   ├── __init__.py
@@ -78,7 +79,7 @@ project-root/
 │       │   ├── evaluator.py
 │       │   └── validation.py         # chiến lược đánh giá mô hình: train/validation split, cross-validation, fold
 │       │
-│       ├── pipelines/                # Layer 4 & chạy pipeline
+│       ├── pipeline/                # Layer 4 & chạy pipeline
 │       │   ├── __init__.py
 │       │   └── training.py
 │       │
@@ -110,15 +111,15 @@ python -m venv .venv
 source .venv/bin/activate
 # Windows Powershell
 # .venv\Scripts\Activate.ps1
-python -m pip install -r requirements-dev.txt
-python -m pip install -e .
+pip-sync requirements-dev.txt
+python -m pip install --no-deps -e .
 ```
 Conda
 ```shell
 conda create -n kaggle-ml python=3.13
 conda activate kaggle-ml
-python -m pip install -r requirements-dev.txt
-python -m pip install -e .
+pip-sync requirements-dev.txt
+python -m pip install --no-deps -e .
 ```
 etc.
 
@@ -160,7 +161,7 @@ python -m pip install --no-deps -e .
 ```
 
 ### 4. Pipeline 
-Training pipeline chung  
+Training pipeline chung, full từ xử lý dữ liệu -> train:  
 ```text
 scripts/train.py
        |
@@ -180,6 +181,9 @@ pipelines/training.py
        v
   outputs/
 ```
+Nếu chạy lại cả pipeline khi train thì rất phí, nên cache kết quả xử lý của từng stage;  
+-> Sau chỉ cần lấy dữ liệu đã làm sạch + preprocessing artifact và train (nếu không có thay đổi về dữ liệu hay config)
+
 Các mô hình chỉ khác nhau ở cấu hình
 Ví dụ chạy train script:
 ```shell
