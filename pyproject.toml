@@ -9,6 +9,7 @@ description = "Solve machine learning challenge from Kaggle Playground, with Jup
 readme = "README.md"
 requires-python = ">=3.12,<3.14"
 dependencies = [
+    "dython",
     "numpy",
     "pandas",
     "scikit-learn",

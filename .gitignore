@@ -57,3 +57,6 @@ htmlcov/
 
 # Profiling / notebooks
 .profile
+
+# Personal Notes
+notes/
