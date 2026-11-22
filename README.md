@@ -228,7 +228,6 @@ outputs/
 Một `experiment` cần ghi nhận tối thiểu:  
 - Experiment ID.
 - Author
-- Git commit hash.
 - Model và hyperparameters.
 - Random seed.
 - Validation strategy.
@@ -264,18 +263,19 @@ Phase 1 – Project foundation
 Phase 2 – Baseline pipeline
 - Data loading.
 - Train/validation split.
-- Preprocessing.
-- Baseline model.
-- Evaluation.
-- Submission generation.
+- Preprocessing cơ bản
+- Baseline model (kiểm chứng findings trong EDA).
+- Data cleaning.
+- pre-processing và Feature engineering.
+- (Submission generation.)
 
 Phase 3 – Team experimentation
+- có data -> Viết train pipeline hoàn chỉnh
 - Experiment configs.
 - Model comparison.
-- Feature engineering.
 - Experiment tracking.
 
-Phase 4 – Quality & automation
+Phase 4 – Quality & automation (optional)
 - Unit tests.
 - Ruff.
 - GitHub Actions.
